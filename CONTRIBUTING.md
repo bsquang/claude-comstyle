@@ -5,7 +5,7 @@ Thanks for wanting to add a style!
 ## How to add a new style
 
 1. Fork the repo and create a branch: `git checkout -b style/your-style-name`
-2. Add your style to `README.md` under the appropriate section
+2. Add your style to **both** `README.md` and `README_VN.md` under the appropriate section
 3. Follow this format:
 
 ```
@@ -31,8 +31,10 @@ Thanks for wanting to add a style!
 - ...
 ```
 
-4. Update the Token Savings Summary table at the bottom
+4. Update the Output Token summary table at the top of both `README.md` and `README_VN.md`
 5. Open a PR with title: `Add: <Style Name> style`
+
+> **Note:** Any change to `README.md` must be reflected in `README_VN.md` and vice versa.
 
 ## Guidelines
 

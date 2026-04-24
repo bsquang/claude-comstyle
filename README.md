@@ -26,18 +26,19 @@ A collection of prompts that change how your AI coding assistant communicates �
 
 | Style | Output tokens | Best for | Worst for | |
 |---|---|---|---|---|
-| 🪖 Military | 🟢 65–75% fewer | Debugging, quick fixes | Architecture discussions | [↗](#-military) |
-| 🪨 Caveman | 🟢 65–75% fewer | Daily coding, quick Q&A | Documentation, PRs | [↗](#-caveman) |
-| 📋 git log | 🟢 50–65% fewer | How-to, setup guides | "Why" questions | [↗](#-git-log-style) |
-| ❓ Socratic | 🟢 50–70% fewer* | Learning, building intuition | Deadline pressure | [↗](#-socratic) |
-| 📌 BLUF | 🟡 20–35% fewer | Decisions, comparisons | Simple lookups | [↗](#-bluf-bottom-line-up-front) |
-| 🧙 Yoda | 🔴 ~0% (neutral) | Fun, pair programming | Long sessions | [↗](#-yoda) |
-| 🏴‍☠️ Pirate | 🔴 +5–15% more output tokens | Demos, screenshots | Serious debugging | [↗](#️-pirate) |
-| 💾 80s Hacker | 🔴 +5–15% more output tokens | Screencasts, demos | Any real work | [↗](#-80s-hacker-movie) |
-| 👨 Dad Joke | 🔴 +10–20% more output tokens | Teaching, team channels | Daily use | [↗](#-dad-joke) |
-| 🦆 Rubber Duck | 🔴 0–+20% more output tokens | Learning new concepts | Quick lookups | [↗](#-rubber-duck) |
-| 🔬 Feynman | 🔴 +20–40% more output tokens | Deep learning, onboarding | Quick lookups | [↗](#-feynman) |
-| 🧱 First Principles | 🔴 +20–30% more output tokens | Architecture, tradeoffs | Simple questions | [↗](#-first-principles) |
+| 🪖 Military | 🟢 65–75% fewer | When you need the fix, not the explanation | Thinking through architecture | [↗](#-military) |
+| 🪨 Caveman | 🟢 65–75% fewer | Fast back-and-forth while actively coding | Writing docs or PR descriptions | [↗](#-caveman) |
+| 📋 git log | 🟢 50–65% fewer | Step-by-step instructions you'll paste into a ticket | Understanding why something works | [↗](#-git-log-style) |
+| ❓ Socratic | 🟢 50–70% fewer* | Understanding WHY, not just HOW | When you're on a deadline | [↗](#-socratic) |
+| 📌 BLUF | 🟡 20–35% fewer | Choosing between two options (X vs Y) | Simple one-answer questions | [↗](#-bluf-bottom-line-up-front) |
+| 🔍 Reality Check | 🟢 60–70% fewer | Evaluating if what you built is actually worth it | When you want validation, not truth | [↗](#-reality-check) |
+| 🧙 Yoda | 🔴 ~0% (neutral) | Livening up a boring debugging session | Long multi-step explanations | [↗](#-yoda) |
+| 🏴‍☠️ Pirate | 🔴 +5–15% more output tokens | Live demos, team screenshots, memes | Any real debugging work | [↗](#️-pirate) |
+| 💾 80s Hacker | 🔴 +5–15% more output tokens | Screencasts where drama helps | Anything you'll copy into docs | [↗](#-80s-hacker-movie) |
+| 👨 Dad Joke | 🔴 +10–20% more output tokens | Team Slack when you want groans + learning | Daily solo use | [↗](#-dad-joke) |
+| 🦆 Rubber Duck | 🔴 0–+20% more output tokens | Learning a concept from zero | Quick reference lookups | [↗](#-rubber-duck) |
+| 🔬 Feynman | 🔴 +20–40% more output tokens | Onboarding juniors or learning unfamiliar topics | Experienced devs on familiar ground | [↗](#-feynman) |
+| 🧱 First Principles | 🔴 +20–30% more output tokens | Picking a tech stack or architecture | Simple factual questions | [↗](#-first-principles) |
 
 *Socratic saves tokens per response but may cost more total across multi-turn conversations.
 
@@ -217,6 +218,38 @@ BLUF: <answer in one sentence>
 - Moderate token savings only — details section still exists
 - BLUF label adds a few tokens per response
 - Overkill for simple factual questions
+
+---
+
+### 🔍 Reality Check
+Honest assessment, not criticism. Straight verdict on real value.
+
+**Token savings: 🟢 ~60–70% fewer output tokens**
+
+**Prompt:**
+```
+Reality Check mode. Honest, direct, balanced.
+Evaluate what actually works, what the real risk is, and whether it's worth the effort.
+Format: [what works] → [real risk] → [verdict: ship / rethink / scrap].
+Not here to criticize. Here to give the honest take nobody else will say.
+```
+
+> 💬 **Example**
+>
+> 👤 **You:** I just built a README with 12 communication styles for Claude.
+>
+> 🤖 **AI:** Summary table + example format work well — scannable, actionable → real risk: Vietnamese README drifts out of sync over time → verdict: ship it, add a sync note to CONTRIBUTING.
+
+**Pros:**
+- Forces a real evaluation, not just validation-seeking
+- Verdict format (ship / rethink / scrap) cuts through ambiguity
+- Works on code, ideas, architecture decisions, and side projects
+- The honest take you'd get from a trusted senior dev
+
+**Cons:**
+- Only useful if you actually want the truth, not confirmation
+- Can feel harsh on personal projects you're emotionally attached to
+- Not suitable when you need encouragement, not assessment
 
 ---
 
