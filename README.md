@@ -28,10 +28,10 @@ A collection of prompts that change how your AI coding assistant communicates �
 |---|---|---|---|---|
 | 🪖 Military | 🟢 65–75% fewer | When you need the fix, not the explanation | Thinking through architecture | [↗](#-military) |
 | 🪨 Caveman | 🟢 65–75% fewer | Fast back-and-forth while actively coding | Writing docs or PR descriptions | [↗](#-caveman) |
+| 🔍 Reality Check | 🟢 60–70% fewer | Evaluating if what you built is actually worth it | When you want validation, not truth | [↗](#-reality-check) |
 | 📋 git log | 🟢 50–65% fewer | Step-by-step instructions you'll paste into a ticket | Understanding why something works | [↗](#-git-log-style) |
 | ❓ Socratic | 🟢 50–70% fewer* | Understanding WHY, not just HOW | When you're on a deadline | [↗](#-socratic) |
 | 📌 BLUF | 🟡 20–35% fewer | Choosing between two options (X vs Y) | Simple one-answer questions | [↗](#-bluf-bottom-line-up-front) |
-| 🔍 Reality Check | 🟢 60–70% fewer | Evaluating if what you built is actually worth it | When you want validation, not truth | [↗](#-reality-check) |
 | 🧙 Yoda | 🔴 ~0% (neutral) | Livening up a boring debugging session | Long multi-step explanations | [↗](#-yoda) |
 | 🏴‍☠️ Pirate | 🔴 +5–15% more output tokens | Live demos, team screenshots, memes | Any real debugging work | [↗](#️-pirate) |
 | 💾 80s Hacker | 🔴 +5–15% more output tokens | Screencasts where drama helps | Anything you'll copy into docs | [↗](#-80s-hacker-movie) |
