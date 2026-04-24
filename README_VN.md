@@ -26,18 +26,19 @@ Tuyển tập các prompt thay đổi cách trợ lý AI lập trình giao tiế
 
 | Phong cách | Output token | Tốt nhất cho | Tệ nhất cho | |
 |---|---|---|---|---|
-| 🪖 Military | 🟢 ít hơn 65–75% | Debug, fix nhanh | Thảo luận kiến trúc | [↗](#-military-quân-đội) |
-| 🪨 Caveman | 🟢 ít hơn 65–75% | Code hàng ngày, Q&A nhanh | Documentation, PR | [↗](#-caveman-người-tiền-sử) |
-| 📋 git log | 🟢 ít hơn 50–65% | How-to, hướng dẫn setup | Câu hỏi "tại sao" | [↗](#-kiểu-git-log) |
-| ❓ Socratic | 🟢 ít hơn 50–70%* | Học, xây dựng trực giác | Áp lực deadline | [↗](#-socratic-socrate) |
-| 📌 BLUF | 🟡 ít hơn 20–35% | Quyết định, so sánh | Tra cứu đơn giản | [↗](#-bluf-kết-luận-trước-tiên) |
-| 🧙 Yoda | 🔴 ~0% (trung tính) | Vui, pair programming | Phiên dài | [↗](#-yoda) |
-| 🏴‍☠️ Pirate | 🔴 nhiều hơn +5–15% output token | Demo, screenshot | Debug nghiêm túc | [↗](#️-pirate-cướp-biển) |
-| 💾 80s Hacker | 🔴 nhiều hơn +5–15% output token | Screencast, demo | Bất kỳ việc thật | [↗](#-phim-hacker-thập-niên-80) |
-| 👨 Dad Joke | 🔴 nhiều hơn +10–20% output token | Dạy học, kênh team | Dùng hàng ngày | [↗](#-dad-joke-trò-đùa-của-bố) |
-| 🦆 Rubber Duck | 🔴 nhiều hơn 0–+20% output token | Học khái niệm mới | Tra cứu nhanh | [↗](#-rubber-duck-vịt-cao-su) |
-| 🔬 Feynman | 🔴 nhiều hơn +20–40% output token | Học sâu, onboarding | Tra cứu nhanh | [↗](#-feynman) |
-| 🧱 First Principles | 🔴 nhiều hơn +20–30% output token | Kiến trúc, đánh đổi | Câu hỏi đơn giản | [↗](#-first-principles-nguyên-tắc-đầu-tiên) |
+| 🪖 Military | 🟢 ít hơn 65–75% | Cần fix ngay, không cần giải thích | Thảo luận kiến trúc | [↗](#-military-quân-đội) |
+| 🪨 Caveman | 🟢 ít hơn 65–75% | Hỏi đáp nhanh khi đang code | Viết docs hoặc PR description | [↗](#-caveman-người-tiền-sử) |
+| 📋 git log | 🟢 ít hơn 50–65% | Hướng dẫn từng bước để paste vào ticket | Hiểu tại sao thứ gì đó hoạt động | [↗](#-kiểu-git-log) |
+| ❓ Socratic | 🟢 ít hơn 50–70%* | Hiểu TẠI SAO, không chỉ LÀM THẾ NÀO | Khi đang deadline | [↗](#-socratic-socrate) |
+| 📌 BLUF | 🟡 ít hơn 20–35% | Chọn giữa hai lựa chọn (X hay Y) | Câu hỏi chỉ có một đáp án | [↗](#-bluf-kết-luận-trước-tiên) |
+| 🔍 Reality Check | 🟢 ít hơn 60–70% | Đánh giá thật sự cái bạn vừa làm có đáng không | Khi bạn muốn được khen, không muốn sự thật | [↗](#-reality-check) |
+| 🧙 Yoda | 🔴 ~0% (trung tính) | Làm buổi debug bớt nhàm chán | Giải thích nhiều bước phức tạp | [↗](#-yoda) |
+| 🏴‍☠️ Pirate | 🔴 nhiều hơn +5–15% output token | Live demo, screenshot cho team, meme | Debug nghiêm túc | [↗](#️-pirate-cướp-biển) |
+| 💾 80s Hacker | 🔴 nhiều hơn +5–15% output token | Screencast khi cần kịch tính | Bất cứ thứ gì paste vào docs | [↗](#-phim-hacker-thập-niên-80) |
+| 👨 Dad Joke | 🔴 nhiều hơn +10–20% output token | Slack team khi muốn vừa học vừa cười | Dùng hàng ngày một mình | [↗](#-dad-joke-trò-đùa-của-bố) |
+| 🦆 Rubber Duck | 🔴 nhiều hơn 0–+20% output token | Học một khái niệm từ con số không | Tra cứu nhanh | [↗](#-rubber-duck-vịt-cao-su) |
+| 🔬 Feynman | 🔴 nhiều hơn +20–40% output token | Onboard junior hoặc học chủ đề xa lạ | Dev có kinh nghiệm với thứ đã quen | [↗](#-feynman) |
+| 🧱 First Principles | 🔴 nhiều hơn +20–30% output token | Chọn tech stack hoặc kiến trúc | Câu hỏi thực tế đơn giản | [↗](#-first-principles-nguyên-tắc-đầu-tiên) |
 
 *Socratic tiết kiệm token mỗi response nhưng có thể tốn nhiều hơn qua toàn bộ cuộc hội thoại nhiều lượt.
 
@@ -217,6 +218,38 @@ BLUF: <answer in one sentence>
 - Chỉ tiết kiệm token vừa phải — phần chi tiết vẫn tồn tại
 - Nhãn BLUF thêm vài token mỗi response
 - Thừa cho câu hỏi thực tế đơn giản
+
+---
+
+### 🔍 Reality Check
+Đánh giá thật, không phải chê cho có. Kết luận thẳng về giá trị thực sự.
+
+**Output token: 🟢 ít hơn ~60–70%**
+
+**Prompt:**
+```
+Reality Check mode. Honest, direct, balanced.
+Evaluate what actually works, what the real risk is, and whether it's worth the effort.
+Format: [what works] → [real risk] → [verdict: ship / rethink / scrap].
+Not here to criticize. Here to give the honest take nobody else will say.
+```
+
+> 💬 **Ví dụ**
+>
+> 👤 **Bạn:** Tôi vừa làm một README với 12 phong cách giao tiếp cho Claude.
+>
+> 🤖 **AI:** Bảng tóm tắt + format ví dụ hoạt động tốt — dễ quét, dễ dùng ngay → rủi ro thật: README tiếng Việt sẽ lỗi thời nếu không sync khi EN thay đổi → verdict: ship it, thêm ghi chú sync vào CONTRIBUTING.
+
+**Ưu điểm:**
+- Buộc đánh giá thật, không chỉ tìm kiếm sự xác nhận
+- Format verdict (ship / rethink / scrap) cắt bỏ sự mơ hồ
+- Dùng được cho code, ý tưởng, quyết định kiến trúc, side project
+- Cái nhìn thẳng thắn mà bạn chỉ nhận được từ senior dev đáng tin
+
+**Nhược điểm:**
+- Chỉ hữu ích khi bạn thực sự muốn nghe sự thật, không phải lời khen
+- Có thể cảm thấy nặng nề với side project bạn đang đầu tư cảm xúc
+- Không phù hợp khi bạn cần động lực, không phải đánh giá
 
 ---
 
