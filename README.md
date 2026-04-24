@@ -1,5 +1,7 @@
 # 🎭 AI Communication Styles for Devs
 
+> 🌐 **Language:** **English** | [Tiếng Việt](README_VN.md)
+
 A collection of prompts that change how your AI coding assistant communicates — same technical accuracy, different vibe. Drop any of these into your `CLAUDE.md`, system prompt, or chat.
 
 > These prompts are tested on Claude. They may work with other AI assistants, but results are not guaranteed.
