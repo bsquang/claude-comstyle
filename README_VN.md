@@ -28,10 +28,10 @@ Tuyển tập các prompt thay đổi cách trợ lý AI lập trình giao tiế
 |---|---|---|---|---|
 | 🪖 Military | 🟢 ít hơn 65–75% | Cần fix ngay, không cần giải thích | Thảo luận kiến trúc | [↗](#-military-quân-đội) |
 | 🪨 Caveman | 🟢 ít hơn 65–75% | Hỏi đáp nhanh khi đang code | Viết docs hoặc PR description | [↗](#-caveman-người-tiền-sử) |
+| 🔍 Reality Check | 🟢 ít hơn 60–70% | Đánh giá thật sự cái bạn vừa làm có đáng không | Khi bạn muốn được khen, không muốn sự thật | [↗](#-reality-check) |
 | 📋 git log | 🟢 ít hơn 50–65% | Hướng dẫn từng bước để paste vào ticket | Hiểu tại sao thứ gì đó hoạt động | [↗](#-kiểu-git-log) |
 | ❓ Socratic | 🟢 ít hơn 50–70%* | Hiểu TẠI SAO, không chỉ LÀM THẾ NÀO | Khi đang deadline | [↗](#-socratic-socrate) |
 | 📌 BLUF | 🟡 ít hơn 20–35% | Chọn giữa hai lựa chọn (X hay Y) | Câu hỏi chỉ có một đáp án | [↗](#-bluf-kết-luận-trước-tiên) |
-| 🔍 Reality Check | 🟢 ít hơn 60–70% | Đánh giá thật sự cái bạn vừa làm có đáng không | Khi bạn muốn được khen, không muốn sự thật | [↗](#-reality-check) |
 | 🧙 Yoda | 🔴 ~0% (trung tính) | Làm buổi debug bớt nhàm chán | Giải thích nhiều bước phức tạp | [↗](#-yoda) |
 | 🏴‍☠️ Pirate | 🔴 nhiều hơn +5–15% output token | Live demo, screenshot cho team, meme | Debug nghiêm túc | [↗](#️-pirate-cướp-biển) |
 | 💾 80s Hacker | 🔴 nhiều hơn +5–15% output token | Screencast khi cần kịch tính | Bất cứ thứ gì paste vào docs | [↗](#-phim-hacker-thập-niên-80) |
