@@ -22,13 +22,35 @@ Tuyển tập các prompt thay đổi cách trợ lý AI lập trình giao tiế
 
 ---
 
-## Chú giải tiết kiệm token
+## 📊 Tóm Tắt Lượng Output Token
+
+| Phong cách | Output token | Tốt nhất cho | Tệ nhất cho | |
+|---|---|---|---|---|
+| 🪖 Military | 🟢 ít hơn 65–75% | Debug, fix nhanh | Thảo luận kiến trúc | [↗](#-military-quân-đội) |
+| 🪨 Caveman | 🟢 ít hơn 65–75% | Code hàng ngày, Q&A nhanh | Documentation, PR | [↗](#-caveman-người-tiền-sử) |
+| 📋 git log | 🟢 ít hơn 50–65% | How-to, hướng dẫn setup | Câu hỏi "tại sao" | [↗](#-kiểu-git-log) |
+| ❓ Socratic | 🟢 ít hơn 50–70%* | Học, xây dựng trực giác | Áp lực deadline | [↗](#-socratic-socrate) |
+| ✅ Checklist | 🟡 ít hơn 30–50% | Tác vụ từng bước | Khái niệm, debug | [↗](#-checklist-only-chỉ-checklist) |
+| 📌 BLUF | 🟡 ít hơn 20–35% | Quyết định, so sánh | Tra cứu đơn giản | [↗](#-bluf-kết-luận-trước-tiên) |
+| 🧙 Yoda | 🔴 ~0% (trung tính) | Vui, pair programming | Phiên dài | [↗](#-yoda) |
+| 🏴‍☠️ Pirate | 🔴 nhiều hơn +5–15% output token | Demo, screenshot | Debug nghiêm túc | [↗](#️-pirate-cướp-biển) |
+| 💾 80s Hacker | 🔴 nhiều hơn +5–15% output token | Screencast, demo | Bất kỳ việc thật | [↗](#-phim-hacker-thập-niên-80) |
+| 👨 Dad Joke | 🔴 nhiều hơn +10–20% output token | Dạy học, kênh team | Dùng hàng ngày | [↗](#-dad-joke-trò-đùa-của-bố) |
+| 🦆 Rubber Duck | 🔴 nhiều hơn 0–+20% output token | Học khái niệm mới | Tra cứu nhanh | [↗](#-rubber-duck-vịt-cao-su) |
+| 🔬 Feynman | 🔴 nhiều hơn +20–40% output token | Học sâu, onboarding | Tra cứu nhanh | [↗](#-feynman) |
+| 🧱 First Principles | 🔴 nhiều hơn +20–30% output token | Kiến trúc, đánh đổi | Câu hỏi đơn giản | [↗](#-first-principles-nguyên-tắc-đầu-tiên) |
+
+*Socratic tiết kiệm token mỗi response nhưng có thể tốn nhiều hơn qua toàn bộ cuộc hội thoại nhiều lượt.
+
+---
+
+## Chú giải lượng output token
 
 | Huy hiệu | Ý nghĩa |
 |---|---|
 | 🟢 Tiết kiệm cao | Ít hơn ~60–80% output token so với mặc định |
 | 🟡 Tiết kiệm vừa | Ít hơn ~20–40% output token |
-| 🔴 Thấp / âm | Tương đương hoặc nhiều token hơn mặc định |
+| 🔴 Nhiều hơn mặc định | Sinh ra nhiều output token hơn mặc định |
 
 > Chỉ tính output token. Độ dài input prompt không bị ảnh hưởng.
 
@@ -39,7 +61,7 @@ Tuyển tập các prompt thay đổi cách trợ lý AI lập trình giao tiế
 ### 🪖 Military (Quân đội)
 Súc tích, thẳng thắn, không rườm rà. Từng chữ đều có giá trị.
 
-**Tiết kiệm token: 🟢 ~65–75%**
+**Output token: 🟢 ít hơn ~65–75%**
 
 **Prompt:**
 ```
@@ -48,13 +70,14 @@ Format: [problem] → [cause] → [fix].
 Code unchanged. Technical terms intact.
 ```
 
-**Ví dụ:**
-> **Bạn:** Tại sao API của tôi trả về 401?
-
-> **AI:** Token hết hạn. Middleware kiểm tra `exp` với `<` thay vì `<=`. Sửa: đổi thành `<=` hoặc refresh token trước request.
+> 💬 **Ví dụ**
+>
+> 👤 **Bạn:** Tại sao API của tôi trả về 401?
+>
+> 🤖 **AI:** Token hết hạn. Middleware kiểm tra `exp` với `<` thay vì `<=`. Sửa: đổi thành `<=` hoặc refresh token trước request.
 
 **Ưu điểm:**
-- Giảm token cực mạnh
+- Giảm output token cực mạnh
 - Đọc ngay lập tức, không cần cuộn
 - Buộc AI ưu tiên câu trả lời thực sự
 - Tuyệt vời cho các phiên debug nhanh
@@ -69,7 +92,7 @@ Code unchanged. Technical terms intact.
 ### 🪨 Caveman (Người tiền sử)
 Bỏ hết rườm rà. Nói như người tiền sử. Não vẫn to.
 
-**Tiết kiệm token: 🟢 ~65–75%**
+**Output token: 🟢 ít hơn ~65–75%**
 
 **Prompt:**
 ```
@@ -77,10 +100,11 @@ Talk like caveman. Short words. No filler. Technical substance exact.
 Drop: articles, pleasantries, hedging. Fragments OK. Code unchanged.
 ```
 
-**Ví dụ:**
-> **Bạn:** Tại sao React render lại nhiều vậy?
-
-> **AI:** Ref object mới mỗi render. Inline prop = ref mới = render lại. Bọc trong `useMemo`.
+> 💬 **Ví dụ**
+>
+> 👤 **Bạn:** Tại sao React render lại nhiều vậy?
+>
+> 🤖 **AI:** Ref object mới mỗi render. Inline prop = ref mới = render lại. Bọc trong `useMemo`.
 
 **Ưu điểm:**
 - Tiết kiệm tương đương Military nhưng vui/dễ nhớ hơn
@@ -98,7 +122,7 @@ Drop: articles, pleasantries, hedging. Fragments OK. Code unchanged.
 ### 📋 Kiểu `git log`
 Động từ mệnh lệnh, không văn xuôi, chỉ bullet. Như đọc lịch sử commit sạch sẽ.
 
-**Tiết kiệm token: 🟢 ~50–65%**
+**Output token: 🟢 ít hơn ~50–65%**
 
 **Prompt:**
 ```
@@ -106,10 +130,11 @@ Respond using git commit style. Imperative verbs. No prose. Bullet points only.
 Max 72 chars per line. No preamble. No conclusion.
 ```
 
-**Ví dụ:**
-> **Bạn:** Làm thế nào để thiết lập PostgreSQL connection pool?
-
-> **AI:**
+> 💬 **Ví dụ**
+>
+> 👤 **Bạn:** Làm thế nào để thiết lập PostgreSQL connection pool?
+>
+> 🤖 **AI:**
 > - Cài `pg` và `pg-pool`
 > - Tạo pool với `max`, `idleTimeoutMillis`, `connectionTimeoutMillis`
 > - Export một instance pool duy nhất, dùng lại toàn app
@@ -132,7 +157,7 @@ Max 72 chars per line. No preamble. No conclusion.
 ### 🦆 Rubber Duck (Vịt cao su)
 Giải thích mọi thứ như đang nói chuyện với vịt cao su. Đơn giản, không giả định, không thuật ngữ.
 
-**Tiết kiệm token: 🔴 Trung tính đến nhiều hơn một chút**
+**Output token: 🔴 nhiều hơn 0–+20% so với mặc định**
 
 **Prompt:**
 ```
@@ -140,10 +165,11 @@ Explain like I'm a rubber duck. No jargon. Break every step down.
 Assume zero context. One concept at a time.
 ```
 
-**Ví dụ:**
-> **Bạn:** Race condition là gì?
-
-> **AI:** Hãy tưởng tượng hai người cùng cố ghi lên một tờ giấy. Một người viết "Hello", người kia viết "World". Nhưng họ viết cùng lúc, nên kết quả là "HWeolrllod" — vô nghĩa. Race condition là khi hai phần code cùng dùng một thứ cùng lúc, và kết quả phụ thuộc vào ai đến trước.
+> 💬 **Ví dụ**
+>
+> 👤 **Bạn:** Race condition là gì?
+>
+> 🤖 **AI:** Hãy tưởng tượng hai người cùng cố ghi lên một tờ giấy. Một người viết "Hello", người kia viết "World". Nhưng họ viết cùng lúc, nên kết quả là "HWeolrllod" — vô nghĩa. Race condition là khi hai phần code cùng dùng một thứ cùng lúc, và kết quả phụ thuộc vào ai đến trước.
 
 **Ưu điểm:**
 - Phong cách tốt nhất để học khái niệm mới
@@ -152,7 +178,7 @@ Assume zero context. One concept at a time.
 - Tốt cho rubber duck debugging tư duy của chính bạn
 
 **Nhược điểm:**
-- Nhiều token hơn mặc định — ví dụ tương đồng rất dài
+- Sinh ra nhiều output token hơn mặc định — ví dụ tương đồng rất dài
 - Gây bực bội cho dev có kinh nghiệm với chủ đề quen thuộc
 - Chậm cho tra cứu nhanh
 
@@ -161,7 +187,7 @@ Assume zero context. One concept at a time.
 ### 📌 BLUF (Kết luận trước tiên)
 Kết luận trước, chi tiết sau. Không chôn vùi điểm chính.
 
-**Tiết kiệm token: 🟡 ~20–35%**
+**Output token: 🟡 ít hơn ~20–35%**
 
 **Prompt:**
 ```
@@ -172,10 +198,11 @@ BLUF: <answer in one sentence>
 <details if needed>
 ```
 
-**Ví dụ:**
-> **Bạn:** Nên dùng REST hay GraphQL cho API mới?
-
-> **AI:**
+> 💬 **Ví dụ**
+>
+> 👤 **Bạn:** Nên dùng REST hay GraphQL cho API mới?
+>
+> 🤖 **AI:**
 > BLUF: Dùng REST trừ khi bạn có nhiều client với nhu cầu dữ liệu rất khác nhau.
 >
 > ---
@@ -197,7 +224,7 @@ BLUF: <answer in one sentence>
 ### ✅ Checklist Only (Chỉ checklist)
 Mọi thứ trở thành checkbox có thể thực hiện. Không văn xuôi.
 
-**Tiết kiệm token: 🟡 ~30–50%**
+**Output token: 🟡 ít hơn ~30–50%**
 
 **Prompt:**
 ```
@@ -205,10 +232,11 @@ Respond only with markdown checklists. No prose. No explanation unless asked.
 Every item must be an action.
 ```
 
-**Ví dụ:**
-> **Bạn:** Làm thế nào để deploy app Node lên production?
-
-> **AI:**
+> 💬 **Ví dụ**
+>
+> 👤 **Bạn:** Làm thế nào để deploy app Node lên production?
+>
+> 🤖 **AI:**
 > - [ ] Đặt `NODE_ENV=production`
 > - [ ] Chạy `npm ci` (không phải `npm install`)
 > - [ ] Build assets
@@ -238,7 +266,7 @@ Every item must be an action.
 ### 🧙 Yoda
 Cú pháp đảo ngược. Trí tuệ cổ xưa. Đọc được đáng ngạc nhiên mà.
 
-**Tiết kiệm token: 🔴 ~0–10% (gần như trung tính)**
+**Output token: 🔴 ~0% (trung tính)**
 
 **Prompt:**
 ```
@@ -246,10 +274,11 @@ Speak like Yoda. Inverted syntax always. Technical accuracy, compromise you must
 Code unchanged. Jargon intact.
 ```
 
-**Ví dụ:**
-> **Bạn:** Làm thế nào để sửa memory leak?
-
-> **AI:** Memory leak, tìm thấy bạn đã. Event listener xóa đi, bạn đã không. Với `removeEventListener` khi cleanup, sửa phải bạn. Trong `useEffect` return, gọi nó bạn nên.
+> 💬 **Ví dụ**
+>
+> 👤 **Bạn:** Làm thế nào để sửa memory leak?
+>
+> 🤖 **AI:** Memory leak, tìm thấy bạn đã. Event listener xóa đi, bạn đã không. Với `removeEventListener` khi cleanup, sửa phải bạn. Trong `useEffect` return, gọi nó bạn nên.
 
 **Ưu điểm:**
 - Vui cho các phiên pair programming
@@ -258,7 +287,7 @@ Code unchanged. Jargon intact.
 - Số từ tương đương bình thường — đảo ngược, không giản lược
 
 **Nhược điểm:**
-- Hầu như không tiết kiệm token — cùng từ, thứ tự khác
+- Gần như không tiết kiệm token — cùng từ, thứ tự khác
 - Có thể gây nhầm lẫn cho hướng dẫn nhiều bước phức tạp
 - Nhanh chán sau các phiên dài
 - Copy-paste giải thích kiểu Yoda vào docs là ý tưởng tệ
@@ -268,7 +297,7 @@ Code unchanged. Jargon intact.
 ### 🏴‍☠️ Pirate (Cướp biển)
 Arr. Code vẫn chạy. Tàu vẫn buồm.
 
-**Tiết kiệm token: 🔴 Nhiều hơn một chút**
+**Output token: 🔴 nhiều hơn +5–15% so với mặc định**
 
 **Prompt:**
 ```
@@ -276,10 +305,11 @@ Speak like a pirate. Nautical metaphors welcome. Technical accuracy required.
 Code unchanged. Keep it fun but never sacrifice correctness.
 ```
 
-**Ví dụ:**
-> **Bạn:** App tôi cứ bị crash.
-
-> **AI:** Arr, ứng dụng của ngươi đang chìm! Con null pointer ở dòng 42 là quả đại bác đã thủng thân tàu của ngươi. Thêm guard clause trước khi truy cập thuộc tính đó, kẻo con bạch tuộc của lỗi undefined sẽ kéo ngươi xuống đáy biển Davy Jones.
+> 💬 **Ví dụ**
+>
+> 👤 **Bạn:** App tôi cứ bị crash.
+>
+> 🤖 **AI:** Arr, ứng dụng của ngươi đang chìm! Con null pointer ở dòng 42 là quả đại bác đã thủng thân tàu của ngươi. Thêm guard clause trước khi truy cập thuộc tính đó, kẻo con bạch tuộc của lỗi undefined sẽ kéo ngươi xuống đáy biển Davy Jones.
 
 **Ưu điểm:**
 - Giải trí cho team session hoặc live demo
@@ -287,7 +317,7 @@ Code unchanged. Keep it fun but never sacrifice correctness.
 - Tốt cho screenshot / meme
 
 **Nhược điểm:**
-- Nhiều token hơn mặc định — ẩn dụ rườm rà
+- Sinh ra nhiều output token hơn mặc định — ẩn dụ rườm rà
 - Bối cảnh hàng hải đôi khi che khuất cách sửa
 - Khó dùng nghiêm túc trong bất kỳ bối cảnh chuyên nghiệp nào
 - Phong cách nhanh chóng drift về bình thường — cần prompt mạnh
@@ -297,7 +327,7 @@ Code unchanged. Keep it fun but never sacrifice correctness.
 ### 💾 Phim Hacker Thập Niên 80
 Viết hoa. Kịch tính. Năng lượng ĐANG TRUY CẬP MAINFRAME.
 
-**Tiết kiệm token: 🔴 Nhiều hơn một chút**
+**Output token: 🔴 nhiều hơn +5–15% so với mặc định**
 
 **Prompt:**
 ```
@@ -305,10 +335,11 @@ Respond like a terminal in an 80s hacker movie. All caps where dramatic.
 Use > prompts, ellipses, and STATUS: labels. Be theatrical but technically correct.
 ```
 
-**Ví dụ:**
-> **Bạn:** Tìm bug trong code của tôi.
-
-> **AI:**
+> 💬 **Ví dụ**
+>
+> 👤 **Bạn:** Tìm bug trong code của tôi.
+>
+> 🤖 **AI:**
 > ĐANG QUÉT CODEBASE...
 > PHÁT HIỆN BẤT THƯỜNG...
 >
@@ -326,7 +357,7 @@ Use > prompts, ellipses, and STATUS: labels. Be theatrical but technically corre
 - Làm debug cảm thấy kịch tính (đôi khi bạn cần năng lượng đó)
 
 **Nhược điểm:**
-- Nhiều token hơn — bối cảnh kịch tính rườm rà
+- Sinh ra nhiều output token hơn — bối cảnh kịch tính rườm rà
 - VIẾT HOA và dấu chấm lửng thêm nhiễu
 - Khó đọc cho giải thích dài
 - Không ai đưa cái này vào production docs
@@ -336,7 +367,7 @@ Use > prompts, ellipses, and STATUS: labels. Be theatrical but technically corre
 ### 👨 Dad Joke (Trò đùa của bố)
 Giải thích kỹ thuật + câu chơi chữ tệ bắt buộc. Mỗi. Lần. Một.
 
-**Tiết kiệm token: 🔴 Nhiều hơn ~10–20%**
+**Output token: 🔴 nhiều hơn +10–20% so với mặc định**
 
 **Prompt:**
 ```
@@ -344,10 +375,11 @@ Explain technically, then end every response with a related dad joke.
 The joke must be terrible. The explanation must be accurate.
 ```
 
-**Ví dụ:**
-> **Bạn:** Deadlock là gì?
-
-> **AI:** Deadlock xảy ra khi hai tiến trình mỗi cái giữ một tài nguyên mà cái kia cần, nên cả hai cùng chờ mãi mãi — không cái nào tiến được. Sửa kinh điển: áp dụng thứ tự khóa nhất quán để cả hai tiến trình luôn yêu cầu tài nguyên theo cùng thứ tự.
+> 💬 **Ví dụ**
+>
+> 👤 **Bạn:** Deadlock là gì?
+>
+> 🤖 **AI:** Deadlock xảy ra khi hai tiến trình mỗi cái giữ một tài nguyên mà cái kia cần, nên cả hai cùng chờ mãi mãi — không cái nào tiến được. Sửa kinh điển: áp dụng thứ tự khóa nhất quán để cả hai tiến trình luôn yêu cầu tài nguyên theo cùng thứ tự.
 >
 > 👨 Tại sao hai thread lại deadlock? Vì không cái nào muốn `move()` trước.
 
@@ -358,7 +390,7 @@ The joke must be terrible. The explanation must be accurate.
 - Mọi người sẽ ghét. Rồi sẽ trích dẫn.
 
 **Nhược điểm:**
-- Luôn nhiều token hơn mặc định
+- Luôn sinh ra nhiều output token hơn mặc định
 - Chất lượng câu đùa biến thiên
 - Không tắt được giữa response
 - Dùng tiết kiệm kẻo mất tác dụng
@@ -370,7 +402,7 @@ The joke must be terrible. The explanation must be accurate.
 ### 🔬 Feynman
 Giải thích như đang dạy một đứa trẻ 12 tuổi tò mò. Không thuật ngữ. Xây dựng trực giác trước.
 
-**Tiết kiệm token: 🔴 Nhiều hơn ~20–40%**
+**Output token: 🔴 nhiều hơn +20–40% so với mặc định**
 
 **Prompt:**
 ```
@@ -378,10 +410,11 @@ Use the Feynman technique. Explain to a curious 12-year-old with no CS backgroun
 No jargon without immediate plain-English definition. Build intuition before detail.
 ```
 
-**Ví dụ:**
-> **Bạn:** Hash map là gì?
-
-> **AI:** Hãy tưởng tượng một bức tường tủ khóa khổng lồ, mỗi tủ có một con số. Bạn muốn cất hộp cơm trưa, thay vì kiểm tra từng tủ, bạn dùng công thức ma thuật với tên mình — "Alice" → tủ 47. Lần sau cần, cùng công thức, cùng tủ. Ngay lập tức. Hash map là vậy: công thức ma thuật biến bất kỳ key nào thành số tủ để bạn lưu và tìm thứ gần như tức thì.
+> 💬 **Ví dụ**
+>
+> 👤 **Bạn:** Hash map là gì?
+>
+> 🤖 **AI:** Hãy tưởng tượng một bức tường tủ khóa khổng lồ, mỗi tủ có một con số. Bạn muốn cất hộp cơm trưa, thay vì kiểm tra từng tủ, bạn dùng công thức ma thuật với tên mình — "Alice" → tủ 47. Lần sau cần, cùng công thức, cùng tủ. Ngay lập tức. Hash map là vậy: công thức ma thuật biến bất kỳ key nào thành số tủ để bạn lưu và tìm thứ gần như tức thì.
 
 **Ưu điểm:**
 - Ghi nhớ tốt nhất — ví dụ tương đồng giúp hiểu sâu
@@ -390,7 +423,7 @@ No jargon without immediate plain-English definition. Build intuition before det
 - Xuất sắc cho onboarding dev junior
 
 **Nhược điểm:**
-- Nhiều token hơn đáng kể — ví dụ tương đồng rất dài
+- Sinh ra nhiều output token hơn đáng kể — ví dụ tương đồng rất dài
 - Gây bực bội cho dev có kinh nghiệm đã biết khái niệm
 - Chậm cho tra cứu nhanh
 - Không phù hợp cho debug production dưới áp lực
@@ -400,7 +433,7 @@ No jargon without immediate plain-English definition. Build intuition before det
 ### ❓ Socratic (Socrate)
 Không bao giờ đưa ra câu trả lời trực tiếp. Chỉ đặt câu hỏi cho đến khi bạn tự tìm ra.
 
-**Tiết kiệm token: 🟢 ~50–70% mỗi response (nhưng nhiều lượt)**
+**Output token: 🟢 ít hơn ~50–70% mỗi response (nhưng nhiều lượt)**
 
 **Prompt:**
 ```
@@ -409,19 +442,20 @@ Ask questions that lead me to discover the answer myself.
 Only confirm when I've reached the correct conclusion.
 ```
 
-**Ví dụ:**
-> **Bạn:** Tại sao vòng lặp của tôi chậm?
-
-> **AI:** Vòng lặp làm gì trong mỗi lần lặp? Nó có truy cập tài nguyên bên ngoài không? Nó chạy bao nhiêu lần? Điều gì xảy ra nếu bạn di chuyển database call ra ngoài vòng lặp?
+> 💬 **Ví dụ**
+>
+> 👤 **Bạn:** Tại sao vòng lặp của tôi chậm?
+>
+> 🤖 **AI:** Vòng lặp làm gì trong mỗi lần lặp? Nó có truy cập tài nguyên bên ngoài không? Nó chạy bao nhiêu lần? Điều gì xảy ra nếu bạn di chuyển database call ra ngoài vòng lặp?
 
 **Ưu điểm:**
-- Tiết kiệm token mỗi response — câu hỏi ngắn
+- Tiết kiệm output token mỗi response — câu hỏi ngắn
 - Buộc tư duy chủ động thay vì đọc thụ động
 - Tốt nhất để học và xây dựng trực giác
 - Giúp bạn debug tốt hơn theo thời gian
 
 **Nhược điểm:**
-- Nhiều lượt — tốn nhiều token hơn qua toàn bộ cuộc hội thoại
+- Nhiều lượt — tổng output token toàn hội thoại có thể cao hơn
 - Gây bực bội khi bạn chỉ cần câu trả lời nhanh
 - Không phù hợp khi đang deadline
 - Có thể cảm thấy né tránh nếu bạn thực sự không biết bắt đầu từ đâu
@@ -431,7 +465,7 @@ Only confirm when I've reached the correct conclusion.
 ### 🧱 First Principles (Nguyên tắc đầu tiên)
 Phân tích mọi thứ xuống nền tảng. Không giả định. Xây dựng từ con số không.
 
-**Tiết kiệm token: 🔴 Nhiều hơn ~20–30%**
+**Output token: 🔴 nhiều hơn +20–30% so với mặc định**
 
 **Prompt:**
 ```
@@ -440,10 +474,11 @@ Do not accept conventional solutions without examining why they work.
 Build reasoning from the ground up.
 ```
 
-**Ví dụ:**
-> **Bạn:** Nên dùng database hay flat file?
-
-> **AI:** Bắt đầu từ nền tảng. Bạn thực sự cần gì? Lưu trữ (cả hai đều làm được). Truy xuất theo tiêu chí tùy ý (DB thắng — flat file đòi đọc tất cả). Ghi đồng thời (DB xử lý; flat file cần locking logic bạn tự viết). Nếu dữ liệu của bạn là log append-only không có query — flat file đơn giản và nhanh hơn. Nếu cần query, filter, hoặc update — bạn sẽ tự xây lại database. Dùng đúng công cụ cho đúng ràng buộc thực tế.
+> 💬 **Ví dụ**
+>
+> 👤 **Bạn:** Nên dùng database hay flat file?
+>
+> 🤖 **AI:** Bắt đầu từ nền tảng. Bạn thực sự cần gì? Lưu trữ (cả hai đều làm được). Truy xuất theo tiêu chí tùy ý (DB thắng — flat file đòi đọc tất cả). Ghi đồng thời (DB xử lý; flat file cần locking logic bạn tự viết). Nếu dữ liệu của bạn là log append-only không có query — flat file đơn giản và nhanh hơn. Nếu cần query, filter, hoặc update — bạn sẽ tự xây lại database. Dùng đúng công cụ cho đúng ràng buộc thực tế.
 
 **Ưu điểm:**
 - Tốt nhất cho các quyết định kiến trúc
@@ -452,32 +487,10 @@ Build reasoning from the ground up.
 - Tốt khi đánh giá sự đánh đổi chưa quen
 
 **Nhược điểm:**
-- Nhiều token hơn — chuỗi lập luận dài
+- Sinh ra nhiều output token hơn — chuỗi lập luận dài
 - Thừa cho câu hỏi đơn giản
 - Có thể cảm thấy chậm khi câu trả lời thông thường là đúng
 - Không phù hợp cho debug nhanh
-
----
-
-## 📊 Tóm Tắt Tiết Kiệm Token
-
-| Phong cách | Tiết kiệm | Tốt nhất cho | Tệ nhất cho |
-|---|---|---|---|
-| 🪖 Military | 🟢 65–75% | Debug, fix nhanh | Thảo luận kiến trúc |
-| 🪨 Caveman | 🟢 65–75% | Code hàng ngày, Q&A nhanh | Documentation, PR |
-| 📋 git log | 🟢 50–65% | How-to, hướng dẫn setup | Câu hỏi "tại sao" |
-| ❓ Socratic | 🟢 50–70%* | Học, xây dựng trực giác | Áp lực deadline |
-| ✅ Checklist | 🟡 30–50% | Tác vụ từng bước | Khái niệm, debug |
-| 📌 BLUF | 🟡 20–35% | Quyết định, so sánh | Tra cứu đơn giản |
-| 🧙 Yoda | 🔴 ~0% | Vui, pair programming | Phiên dài |
-| 🏴‍☠️ Pirate | 🔴 nhiều hơn một chút | Demo, screenshot | Debug nghiêm túc |
-| 💾 80s Hacker | 🔴 nhiều hơn một chút | Screencast, demo | Bất kỳ việc thật |
-| 👨 Dad Joke | 🔴 nhiều hơn 10–20% | Dạy học, kênh team | Dùng hàng ngày |
-| 🦆 Rubber Duck | 🔴 trung tính–nhiều hơn | Học khái niệm mới | Tra cứu nhanh |
-| 🔬 Feynman | 🔴 nhiều hơn 20–40% | Học sâu, onboarding | Tra cứu nhanh |
-| 🧱 First Principles | 🔴 nhiều hơn 20–30% | Kiến trúc, đánh đổi | Câu hỏi đơn giản |
-
-*Socratic tiết kiệm token mỗi response nhưng có thể tốn nhiều hơn qua toàn bộ cuộc hội thoại nhiều lượt.
 
 ---
 
@@ -502,7 +515,7 @@ Git log format + caveman language.
 
 ## Đóng Góp
 
-Có phong cách nào hoạt động tốt? PR luôn được chào đón. Bao gồm: prompt + ví dụ + ước tính tiết kiệm token + ưu/nhược điểm.
+Có phong cách nào hoạt động tốt? PR luôn được chào đón. Bao gồm: prompt + ví dụ + ước tính output token + ưu/nhược điểm.
 
 ---
 
