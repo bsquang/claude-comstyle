@@ -1,4 +1,4 @@
-# 🎭 Phong Cách Giao Tiếp AI cho Lập Trình Viên
+# Claude Prompt Styles cho Lập Trình Viên
 
 > 🌐 **Ngôn ngữ:** [English](README.md) | **Tiếng Việt**
 

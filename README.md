@@ -1,4 +1,4 @@
-# 🎭 AI Communication Styles for Devs
+# Claude Prompt Styles for Devs
 
 > 🌐 **Language:** **English** | [Tiếng Việt](README_VN.md)
 
