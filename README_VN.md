@@ -30,7 +30,6 @@ Tuyển tập các prompt thay đổi cách trợ lý AI lập trình giao tiế
 | 🪨 Caveman | 🟢 ít hơn 65–75% | Code hàng ngày, Q&A nhanh | Documentation, PR | [↗](#-caveman-người-tiền-sử) |
 | 📋 git log | 🟢 ít hơn 50–65% | How-to, hướng dẫn setup | Câu hỏi "tại sao" | [↗](#-kiểu-git-log) |
 | ❓ Socratic | 🟢 ít hơn 50–70%* | Học, xây dựng trực giác | Áp lực deadline | [↗](#-socratic-socrate) |
-| ✅ Checklist | 🟡 ít hơn 30–50% | Tác vụ từng bước | Khái niệm, debug | [↗](#-checklist-only-chỉ-checklist) |
 | 📌 BLUF | 🟡 ít hơn 20–35% | Quyết định, so sánh | Tra cứu đơn giản | [↗](#-bluf-kết-luận-trước-tiên) |
 | 🧙 Yoda | 🔴 ~0% (trung tính) | Vui, pair programming | Phiên dài | [↗](#-yoda) |
 | 🏴‍☠️ Pirate | 🔴 nhiều hơn +5–15% output token | Demo, screenshot | Debug nghiêm túc | [↗](#️-pirate-cướp-biển) |
@@ -218,46 +217,6 @@ BLUF: <answer in one sentence>
 - Chỉ tiết kiệm token vừa phải — phần chi tiết vẫn tồn tại
 - Nhãn BLUF thêm vài token mỗi response
 - Thừa cho câu hỏi thực tế đơn giản
-
----
-
-### ✅ Checklist Only (Chỉ checklist)
-Mọi thứ trở thành checkbox có thể thực hiện. Không văn xuôi.
-
-**Output token: 🟡 ít hơn ~30–50%**
-
-**Prompt:**
-```
-Respond only with markdown checklists. No prose. No explanation unless asked.
-Every item must be an action.
-```
-
-> 💬 **Ví dụ**
->
-> 👤 **Bạn:** Làm thế nào để deploy app Node lên production?
->
-> 🤖 **AI:**
-> - [ ] Đặt `NODE_ENV=production`
-> - [ ] Chạy `npm ci` (không phải `npm install`)
-> - [ ] Build assets
-> - [ ] Thiết lập process manager (PM2 hoặc systemd)
-> - [ ] Cấu hình reverse proxy (nginx)
-> - [ ] Thiết lập SSL (certbot)
-> - [ ] Thêm health check endpoint
-> - [ ] Cấu hình log rotation
-> - [ ] Đặt env vars (không bao giờ hardcode)
-> - [ ] Thiết lập monitoring + alerts
-
-**Ưu điểm:**
-- Output dùng được ngay làm task list
-- Dễ theo dõi tiến độ
-- Không rườm rà giữa các bước
-- Dán thẳng vào GitHub Issues, Notion, Linear
-
-**Nhược điểm:**
-- Mất "tại sao" — chỉ còn "cái gì"
-- Cú pháp checkbox markdown thêm overhead nhẹ so với bullet thường
-- Tệ cho debug hoặc câu hỏi khái niệm
 
 ---
 

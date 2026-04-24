@@ -30,7 +30,6 @@ A collection of prompts that change how your AI coding assistant communicates �
 | 🪨 Caveman | 🟢 65–75% fewer | Daily coding, quick Q&A | Documentation, PRs | [↗](#-caveman) |
 | 📋 git log | 🟢 50–65% fewer | How-to, setup guides | "Why" questions | [↗](#-git-log-style) |
 | ❓ Socratic | 🟢 50–70% fewer* | Learning, building intuition | Deadline pressure | [↗](#-socratic) |
-| ✅ Checklist | 🟡 30–50% fewer | Step-by-step tasks | Concepts, debugging | [↗](#-checklist-only) |
 | 📌 BLUF | 🟡 20–35% fewer | Decisions, comparisons | Simple lookups | [↗](#-bluf-bottom-line-up-front) |
 | 🧙 Yoda | 🔴 ~0% (neutral) | Fun, pair programming | Long sessions | [↗](#-yoda) |
 | 🏴‍☠️ Pirate | 🔴 +5–15% more output tokens | Demos, screenshots | Serious debugging | [↗](#️-pirate) |
@@ -218,46 +217,6 @@ BLUF: <answer in one sentence>
 - Moderate token savings only — details section still exists
 - BLUF label adds a few tokens per response
 - Overkill for simple factual questions
-
----
-
-### ✅ Checklist Only
-Everything becomes actionable checkboxes. Zero prose.
-
-**Token savings: 🟡 ~30–50% fewer output tokens**
-
-**Prompt:**
-```
-Respond only with markdown checklists. No prose. No explanation unless asked.
-Every item must be an action.
-```
-
-> 💬 **Example**
->
-> 👤 **You:** How do I deploy a Node app to production?
->
-> 🤖 **AI:**
-> - [ ] Set `NODE_ENV=production`
-> - [ ] Run `npm ci` (not `npm install`)
-> - [ ] Build assets
-> - [ ] Set up process manager (PM2 or systemd)
-> - [ ] Configure reverse proxy (nginx)
-> - [ ] Set up SSL (certbot)
-> - [ ] Add health check endpoint
-> - [ ] Set up log rotation
-> - [ ] Configure env vars (never hardcode)
-> - [ ] Set up monitoring + alerts
-
-**Pros:**
-- Output is directly usable as a task list
-- Easy to track progress
-- No fluff between actionable steps
-- Paste directly into GitHub Issues, Notion, Linear
-
-**Cons:**
-- Loses "why" — just "what"
-- Checkbox markdown syntax adds slight overhead vs plain bullets
-- Terrible for debugging or conceptual questions
 
 ---
 
