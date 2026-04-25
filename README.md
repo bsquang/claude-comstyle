@@ -14,6 +14,8 @@ Pick a style from the table → copy the prompt → paste at the start of your c
 
 Want it permanent? Add to `~/.claude/CLAUDE.md` — active for every session.
 
+**Want even fewer tokens?** Append `terminal CLI style` to any prompt → strips all markdown → plain text output → ~20–30% additional savings on top of the style.
+
 ---
 
 ## 📊 Style Overview
@@ -68,6 +70,11 @@ Code unchanged. Technical terms intact.
 |---|---|
 | Sure! A 401 typically means there's an authentication issue. The most common cause is an expired or invalid token. Looking at your middleware, it seems the token expiry check might be slightly off — specifically, the comparison operator used when validating the `exp` field. You'll want to review that logic and potentially add a token refresh flow before making the request. | Token expired. Middleware checks `exp` with `<` not `<=`. Fix: change to `<=` or refresh token before request. |
 
+**+ `terminal CLI style`**
+```
+token expired → exp check < not <= → change to <= or refresh before request
+```
+
 **Pros:**
 - Massive token reduction
 - Instant to read, no scrolling
@@ -97,6 +104,11 @@ Drop: articles, pleasantries, hedging. Fragments OK. Code unchanged.
 | 🗣️ Default Claude | 🪨 Caveman |
 |---|---|
 | React re-renders occur when component state or props change. In this case, the issue is likely that you're passing an inline object as a prop. Every render creates a new object reference, and since React uses shallow comparison, it treats the new reference as a changed prop and triggers a re-render. The recommended solution is to wrap the object in `useMemo` to stabilize the reference across renders. | New object ref each render. Inline prop = new ref = re-render. Wrap in `useMemo`. |
+
+**+ `terminal CLI style`**
+```
+new obj ref each render → inline prop = new ref = re-render → useMemo
+```
 
 **Pros:**
 - Same savings as Military but more fun/memorable
@@ -128,7 +140,12 @@ Not here to criticize. Here to give the honest take nobody else will say.
 
 | 🗣️ Default Claude | 🔍 Reality Check |
 |---|---|
-| Great work! Your README looks comprehensive and well-structured. The examples are clear, the token savings table is a nice touch, and the bilingual support shows real attention to your audience. I think this is a solid project that developers will find useful! | Summary table + examples work well → real risk: nobody revisits a README after the first use → verdict: ship it, but the Quick Start section is what gets people through the door. |
+| Great work! Your README looks comprehensive and well-structured. The examples are clear, the token savings table is a nice touch, and the bilingual support shows real attention to your audience. I think this is a solid project that developers will find useful! | Summary table + example format work well → real risk: Vietnamese README drifts out of sync over time → verdict: ship it, add a sync note to CONTRIBUTING. |
+
+**+ `terminal CLI style`**
+```
+works: table + examples → risk: vn readme drifts → verdict: ship, add sync note
+```
 
 **Pros:**
 - Forces a real evaluation, not just validation-seeking
@@ -159,6 +176,15 @@ Max 72 chars per line. No preamble. No conclusion.
 | 🗣️ Default Claude | 📋 git log |
 |---|---|
 | To set up a PostgreSQL connection pool in Node.js, you'll want to use the `pg` library along with `pg-pool`. First, install both packages, then create a pool instance with your configuration options like max connections and timeout values. Make sure to export a single instance and reuse it throughout your application for efficiency. | - Install `pg` and `pg-pool`<br>- Create pool with `max`, `idleTimeoutMillis`, `connectionTimeoutMillis`<br>- Export single pool instance, reuse across app<br>- Call `pool.end()` on shutdown<br>- Add `DATABASE_URL` to `.env` |
+
+**+ `terminal CLI style`**
+```
+install pg and pg-pool
+create pool with max, idleTimeoutMillis, connectionTimeoutMillis
+export single pool instance, reuse across app
+call pool.end on shutdown
+add DATABASE_URL to .env
+```
 
 **Pros:**
 - Extremely scannable
@@ -193,6 +219,13 @@ BLUF: <answer in one sentence>
 |---|---|
 | Both REST and GraphQL are viable options for your API. REST is more widely understood and easier to cache, while GraphQL offers more flexibility for clients with varying data needs. For most standard CRUD applications, REST is the simpler choice, but if you have multiple clients — mobile, web, third-party — that need different data shapes, GraphQL might be worth the added complexity. | BLUF: Use REST unless you have multiple clients with very different data needs.<br>---<br>REST is simpler to cache, easier to debug, and most teams know it. GraphQL pays off when mobile + web + third-party clients all need different data shapes. |
 
+**+ `terminal CLI style`**
+```
+bluf: use rest unless multiple clients need different data shapes
+rest simpler to cache and debug, teams know it
+graphql worth it for mobile + web + third-party with different data shapes
+```
+
 **Pros:**
 - You get the answer before deciding if you need the details
 - Saves time even if token count is similar — you stop reading sooner
@@ -225,6 +258,11 @@ Code unchanged. Jargon intact.
 |---|---|
 | You have a memory leak because you're not removing your event listeners when the component unmounts. You should use `removeEventListener` in the cleanup function of your `useEffect`. | A memory leak, found you have. Removed your event listeners, you have not. With `removeEventListener` on cleanup, fix this you must. In `useEffect` return, call it you should. |
 
+**+ `terminal CLI style`**
+```
+memory leak found you have. event listeners removed you have not. removeEventListener on cleanup use you must. in useEffect return call it you should.
+```
+
 **Pros:**
 - Fun for pair programming sessions
 - Surprisingly readable once you're in the flow
@@ -256,6 +294,11 @@ Code unchanged. Keep it fun but never sacrifice correctness.
 |---|---|
 | Your app is crashing because of a null pointer exception on line 42. You need to add a guard clause before accessing that property to prevent the crash. | Arr, yer application be sinkin'! The null pointer on line 42 be the cannonball that holed yer hull. Add a guard clause before ye access that property, or the kraken of undefined errors will drag ye to Davy Jones' locker. |
 
+**+ `terminal CLI style`**
+```
+arr yer app be sinkin. null pointer line 42 be the cannonball. add guard clause or kraken of undefined drags ye to davy jones locker.
+```
+
 **Pros:**
 - Entertaining for team sessions or live demos
 - Metaphors occasionally make bugs more memorable
@@ -286,6 +329,14 @@ Use > prompts, ellipses, and STATUS: labels. Be theatrical but technically corre
 |---|---|
 | I found the bug. There's a null pointer exception on line 42 — you're accessing `.data` without checking if it exists first. Add a null check before that line to fix it. | SCANNING CODEBASE... ANOMALY DETECTED...<br>`> STATUS: BUG FOUND — LINE 42`<br>`> TYPE: NULL POINTER EXCEPTION`<br>INITIATING FIX SEQUENCE... Add null check before `.data`. PATCH DEPLOYED. SYSTEM STABLE. 🟢 |
 
+**+ `terminal CLI style`**
+```
+SCANNING... ANOMALY DETECTED...
+STATUS: BUG FOUND LINE 42 / TYPE: NULL POINTER
+FIX: add null check before .data
+PATCH DEPLOYED. STABLE.
+```
+
 **Pros:**
 - Extremely fun for demos and screencasts
 - STATUS labels actually make output scannable
@@ -315,6 +366,14 @@ The joke must be terrible. The explanation must be accurate.
 | 🗣️ Default Claude | 👨 Dad Joke |
 |---|---|
 | A deadlock occurs when two processes each hold a resource the other needs, causing them to wait indefinitely. The standard fix is to enforce a consistent lock ordering so both processes always request resources in the same sequence. | A deadlock happens when two processes each hold a resource the other needs — neither can proceed. Fix: enforce consistent lock ordering.<br><br>👨 Why did the two threads deadlock? Neither wanted to make the first `move()`. |
+
+**+ `terminal CLI style`**
+```
+deadlock: two processes hold resource each other needs, both wait forever
+fix: enforce consistent lock ordering
+
+why did threads deadlock? neither wanted to make the first move().
+```
 
 **Pros:**
 - Makes dry concepts memorable
@@ -349,6 +408,11 @@ Assume zero context. One concept at a time.
 |---|---|
 | A race condition occurs when two concurrent processes access shared state without proper synchronization, leading to non-deterministic behavior depending on execution order. | Imagine two people writing on the same piece of paper at the same time. One writes "Hello", the other writes "World". They write simultaneously, so you get "HWeolrllod" — garbage. That's a race condition: two parts of your code using the same thing at the same time, result depends on who gets there first. |
 
+**+ `terminal CLI style`**
+```
+imagine two people writing on same paper at same time. one writes hello other writes world. simultaneously = hweolrllod = garbage. thats race condition: two code parts use same thing at same time, result depends on who gets there first.
+```
+
 **Pros:**
 - Best style for learning new concepts
 - Analogies make complex topics stick
@@ -378,6 +442,11 @@ No jargon without immediate plain-English definition. Build intuition before det
 | 🗣️ Default Claude | 🔬 Feynman |
 |---|---|
 | A hash map is a data structure that uses a hash function to map keys to array indices, providing O(1) average-case lookup, insertion, and deletion operations. | Imagine a huge wall of lockers, each with a number. Instead of checking every locker, you use a magic formula on your name — "Alice" → locker 47. Next time you need it, same formula, same locker. Instant. That's a hash map: a magic formula that turns any key into a locker number. |
+
+**+ `terminal CLI style`**
+```
+imagine huge wall of lockers each with number. instead of checking every locker use magic formula on your name. alice = locker 47. next time same formula same locker. instant. thats hash map.
+```
 
 **Pros:**
 - Best retention — analogies make things stick
@@ -411,6 +480,11 @@ Only confirm when I've reached the correct conclusion.
 |---|---|
 | Your loop is slow because you're making a database call inside it. Every iteration hits the database, which is expensive. Move the query outside the loop and store the result in a variable before iterating. | What does the loop do on each iteration? Does it access any external resource? How many times does it run? What happens if you move that database call outside the loop? |
 
+**+ `terminal CLI style`**
+```
+what does loop do each iteration? does it access external resource? how many times does it run? what if you move database call outside loop?
+```
+
 **Pros:**
 - Token-efficient per response — questions are short
 - Forces active thinking instead of passive reading
@@ -442,6 +516,11 @@ Build reasoning from the ground up.
 | 🗣️ Default Claude | 🧱 First Principles |
 |---|---|
 | For most use cases, a database is the better choice. It handles concurrent writes, supports complex queries, and scales well. Flat files are only practical for simple append-only logs. | Start from fundamentals. What do you need? Storage (both do this). Retrieval by criteria (DB wins — flat files require reading everything). Concurrent writes (DB handles this; flat files need locking logic you'd write yourself). If append-only, no queries — flat file wins. Otherwise you'd rebuild a database anyway. |
+
+**+ `terminal CLI style`**
+```
+need: storage (both). retrieval by criteria (db wins, flat files read everything). concurrent writes (db handles, flat files need locking). append-only no queries = flat file. otherwise rebuild db anyway.
+```
 
 **Pros:**
 - Best for architectural decisions

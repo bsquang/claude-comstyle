@@ -14,6 +14,8 @@ Chọn một style từ bảng bên dưới → copy prompt → dán vào đầu
 
 Muốn dùng mãi mãi? Thêm vào `~/.claude/CLAUDE.md` — áp dụng cho mọi phiên.
 
+**Muốn tiết kiệm thêm?** Thêm `terminal CLI style` vào bất kỳ prompt nào → bỏ toàn bộ markdown → output thuần text → tiết kiệm thêm ~20–30% trên mỗi style.
+
 ---
 
 ## 📊 Tổng Quan Các Style
@@ -68,6 +70,11 @@ Code unchanged. Technical terms intact.
 |---|---|
 | Chắc chắn rồi! Lỗi 401 thường cho thấy vấn đề xác thực. Nguyên nhân phổ biến nhất là token hết hạn, thông tin đăng nhập không hợp lệ, hoặc thiếu header xác thực. Trong trường hợp của bạn, middleware đang kiểm tra trường `exp` bằng toán tử `<` thay vì `<=`... | Token hết hạn. Middleware kiểm tra `exp` với `<` thay vì `<=`. Sửa: đổi thành `<=` hoặc refresh token trước request. |
 
+**+ `terminal CLI style`**
+```
+token expired → exp check < not <= → change to <= or refresh before request
+```
+
 **Ưu điểm:**
 - Giảm output token cực mạnh
 - Đọc ngay lập tức, không cần cuộn
@@ -97,6 +104,11 @@ Drop: articles, pleasantries, hedging. Fragments OK. Code unchanged.
 | 🗣️ Claude mặc định | 🪨 Caveman |
 |---|---|
 | React re-render xảy ra khi state hoặc props của component thay đổi. Trong trường hợp này, vấn đề có thể là bạn đang truyền một object inline như một prop. Mỗi lần render tạo ra một reference object mới, và vì React dùng shallow comparison... | Ref object mới mỗi render. Inline prop = ref mới = render lại. Bọc trong `useMemo`. |
+
+**+ `terminal CLI style`**
+```
+new obj ref each render → inline prop = new ref = re-render → useMemo
+```
 
 **Ưu điểm:**
 - Tiết kiệm tương đương Military nhưng vui/dễ nhớ hơn
@@ -129,6 +141,11 @@ Not here to criticize. Here to give the honest take nobody else will say.
 |---|---|
 | Làm tốt lắm! README của bạn trông rất toàn diện và có cấu trúc tốt. Các ví dụ rõ ràng, bảng token savings là điểm cộng, và hỗ trợ song ngữ cho thấy bạn quan tâm đến người dùng. Tôi nghĩ đây là một dự án vững chắc! | Bảng tóm tắt + ví dụ hoạt động tốt → rủi ro thật: không ai mở lại README sau lần đầu → verdict: ship it, nhưng Quick Start là thứ giúp người dùng bắt đầu. |
 
+**+ `terminal CLI style`**
+```
+works: table + examples → risk: vn readme drifts → verdict: ship, add sync note
+```
+
 **Ưu điểm:**
 - Buộc đánh giá thật, không chỉ tìm kiếm sự xác nhận
 - Format verdict (ship / rethink / scrap) cắt bỏ sự mơ hồ
@@ -158,6 +175,15 @@ Max 72 chars per line. No preamble. No conclusion.
 | 🗣️ Claude mặc định | 📋 git log |
 |---|---|
 | Để thiết lập PostgreSQL connection pool trong Node.js, bạn cần dùng thư viện `pg` cùng với `pg-pool`. Đầu tiên cài cả hai package, sau đó tạo pool instance với các tùy chọn cấu hình... | - Cài `pg` và `pg-pool`<br>- Tạo pool với `max`, `idleTimeoutMillis`, `connectionTimeoutMillis`<br>- Export một instance, dùng lại toàn app<br>- Gọi `pool.end()` khi shutdown<br>- Thêm `DATABASE_URL` vào `.env` |
+
+**+ `terminal CLI style`**
+```
+install pg and pg-pool
+create pool with max, idleTimeoutMillis, connectionTimeoutMillis
+export single pool instance, reuse across app
+call pool.end on shutdown
+add DATABASE_URL to .env
+```
 
 **Ưu điểm:**
 - Cực kỳ dễ quét nhanh
@@ -190,6 +216,13 @@ BLUF: <answer in one sentence>
 |---|---|
 | Cả REST và GraphQL đều là lựa chọn khả thi. REST dễ cache hơn và được hiểu rộng rãi hơn, trong khi GraphQL linh hoạt hơn cho các client có nhu cầu dữ liệu khác nhau. Với hầu hết app CRUD thông thường, REST là lựa chọn đơn giản hơn... | BLUF: Dùng REST trừ khi bạn có nhiều client với nhu cầu dữ liệu rất khác nhau.<br>---<br>REST đơn giản hơn để cache, dễ debug, hầu hết team đều biết. GraphQL đáng dùng khi mobile + web + client bên thứ ba cần hình dạng dữ liệu khác nhau. |
 
+**+ `terminal CLI style`**
+```
+bluf: use rest unless multiple clients need different data shapes
+rest simpler to cache and debug, teams know it
+graphql worth it for mobile + web + third-party with different data shapes
+```
+
 **Ưu điểm:**
 - Nhận được câu trả lời trước khi quyết định có cần chi tiết không
 - Tốt cho câu hỏi quyết định ("nên dùng X hay Y")
@@ -219,6 +252,11 @@ Code unchanged. Jargon intact.
 |---|---|
 | Bạn bị memory leak vì không xóa event listener khi component unmount. Dùng `removeEventListener` trong cleanup function của `useEffect`. | Memory leak, tìm thấy bạn đã. Event listener xóa đi, bạn đã không. Với `removeEventListener` khi cleanup, sửa phải bạn. Trong `useEffect` return, gọi nó bạn nên. |
 
+**+ `terminal CLI style`**
+```
+memory leak found you have. event listeners removed you have not. removeEventListener on cleanup use you must. in useEffect return call it you should.
+```
+
 **Ưu điểm:**
 - Vui cho các phiên pair programming
 - Làm chủ đề khô khan trở nên đáng nhớ
@@ -245,6 +283,11 @@ Code unchanged. Keep it fun but never sacrifice correctness.
 | 🗣️ Claude mặc định | 🏴‍☠️ Pirate |
 |---|---|
 | App bị crash vì null pointer exception ở dòng 42. Cần thêm guard clause trước khi truy cập thuộc tính đó. | Arr, ứng dụng của ngươi đang chìm! Con null pointer ở dòng 42 là quả đại bác đã thủng thân tàu. Thêm guard clause, kẻo con bạch tuộc của lỗi undefined kéo ngươi xuống đáy biển Davy Jones! |
+
+**+ `terminal CLI style`**
+```
+arr yer app be sinkin. null pointer line 42 be the cannonball. add guard clause or kraken of undefined drags ye to davy jones locker.
+```
 
 **Ưu điểm:**
 - Giải trí cho team session hoặc live demo
@@ -273,6 +316,14 @@ Use > prompts, ellipses, and STATUS: labels. Be theatrical but technically corre
 |---|---|
 | Tìm thấy bug rồi. Null pointer exception ở dòng 42 — bạn đang truy cập `.data` mà không kiểm tra null trước. Thêm null check trước dòng đó là xong. | ĐANG QUÉT CODEBASE... PHÁT HIỆN BẤT THƯỜNG...<br>`> STATUS: ĐÃ TÌM THẤY BUG — DÒNG 42`<br>ĐANG KHỞI ĐỘNG TRÌNH TỰ SỬA LỖI... Thêm null check trước `.data`. ĐÃ VÁ LỖI. HỆ THỐNG ỔN ĐỊNH. 🟢 |
 
+**+ `terminal CLI style`**
+```
+SCANNING... ANOMALY DETECTED...
+STATUS: BUG FOUND LINE 42 / TYPE: NULL POINTER
+FIX: add null check before .data
+PATCH DEPLOYED. STABLE.
+```
+
 **Ưu điểm:**
 - Cực kỳ vui cho demo và screencast
 - Nhãn STATUS thực sự làm output dễ quét
@@ -299,6 +350,14 @@ The joke must be terrible. The explanation must be accurate.
 | 🗣️ Claude mặc định | 👨 Dad Joke |
 |---|---|
 | Deadlock xảy ra khi hai tiến trình mỗi cái giữ một tài nguyên mà cái kia cần. Sửa chuẩn: áp dụng thứ tự khóa nhất quán. | Deadlock: hai tiến trình giữ tài nguyên của nhau, cả hai chờ mãi. Sửa: thứ tự khóa nhất quán.<br><br>👨 Tại sao hai thread deadlock? Vì không cái nào muốn `move()` trước. |
+
+**+ `terminal CLI style`**
+```
+deadlock: two processes hold resource each other needs, both wait forever
+fix: enforce consistent lock ordering
+
+why did threads deadlock? neither wanted to make the first move().
+```
 
 **Ưu điểm:**
 - Làm khái niệm khô khan dễ nhớ
@@ -329,6 +388,11 @@ Assume zero context. One concept at a time.
 |---|---|
 | Race condition xảy ra khi hai tiến trình concurrent truy cập shared state mà không có synchronization, dẫn đến hành vi non-deterministic. | Tưởng tượng hai người cùng ghi lên một tờ giấy. Một người viết "Hello", người kia viết "World". Cùng lúc, nên kết quả là "HWeolrllod" — vô nghĩa. Race condition là vậy: hai phần code dùng cùng một thứ cùng lúc, kết quả phụ thuộc vào ai đến trước. |
 
+**+ `terminal CLI style`**
+```
+imagine two people writing on same paper at same time. one writes hello other writes world. simultaneously = hweolrllod = garbage. thats race condition: two code parts use same thing at same time, result depends on who gets there first.
+```
+
 **Ưu điểm:**
 - Tốt nhất để học khái niệm mới
 - Ví dụ tương đồng giúp ghi nhớ sâu
@@ -355,6 +419,11 @@ No jargon without immediate plain-English definition. Build intuition before det
 | 🗣️ Claude mặc định | 🔬 Feynman |
 |---|---|
 | Hash map là cấu trúc dữ liệu dùng hash function để ánh xạ key sang array index, cho phép lookup, insert, delete O(1) trung bình. | Tưởng tượng một bức tường tủ khóa khổng lồ. Thay vì kiểm tra từng tủ, bạn dùng công thức ma thuật với tên mình — "Alice" → tủ 47. Lần sau cần, cùng công thức, cùng tủ. Ngay lập tức. Hash map là vậy. |
+
+**+ `terminal CLI style`**
+```
+imagine huge wall of lockers each with number. instead of checking every locker use magic formula on your name. alice = locker 47. next time same formula same locker. instant. thats hash map.
+```
 
 **Ưu điểm:**
 - Ghi nhớ tốt nhất — ví dụ tương đồng giúp hiểu sâu
@@ -384,6 +453,11 @@ Only confirm when I've reached the correct conclusion.
 |---|---|
 | Vòng lặp chậm vì bạn đang gọi database bên trong nó. Mỗi lần lặp đều hit database, rất tốn kém. Hãy chuyển query ra ngoài vòng lặp. | Vòng lặp làm gì trong mỗi lần lặp? Nó có truy cập tài nguyên bên ngoài không? Nó chạy bao nhiêu lần? Điều gì xảy ra nếu bạn chuyển database call ra ngoài vòng lặp? |
 
+**+ `terminal CLI style`**
+```
+what does loop do each iteration? does it access external resource? how many times does it run? what if you move database call outside loop?
+```
+
 **Ưu điểm:**
 - Tiết kiệm output token mỗi response
 - Buộc tư duy chủ động, giúp bạn debug tốt hơn theo thời gian
@@ -411,6 +485,11 @@ Build reasoning from the ground up.
 | 🗣️ Claude mặc định | 🧱 First Principles |
 |---|---|
 | Với hầu hết use case, database là lựa chọn tốt hơn. Nó xử lý concurrent writes, hỗ trợ query phức tạp, và scale tốt. Flat file chỉ thực tế cho log append-only đơn giản. | Bắt đầu từ nền tảng. Bạn cần gì? Lưu trữ (cả hai). Truy xuất theo tiêu chí (DB thắng — flat file đòi đọc tất cả). Ghi đồng thời (DB xử lý; flat file cần locking bạn tự viết). Nếu chỉ append-only, không query — flat file thắng. Ngược lại bạn sẽ tự xây lại database. |
+
+**+ `terminal CLI style`**
+```
+need: storage (both). retrieval by criteria (db wins, flat files read everything). concurrent writes (db handles, flat files need locking). append-only no queries = flat file. otherwise rebuild db anyway.
+```
 
 **Ưu điểm:**
 - Tốt nhất cho các quyết định kiến trúc
