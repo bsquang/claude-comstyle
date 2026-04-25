@@ -69,6 +69,7 @@ Code unchanged. Technical terms intact.
 | 🗣️ Default Claude | 🪖 Military |
 |---|---|
 | Sure! A 401 typically means there's an authentication issue. The most common cause is an expired or invalid token. Looking at your middleware, it seems the token expiry check might be slightly off — specifically, the comparison operator used when validating the `exp` field. You'll want to review that logic and potentially add a token refresh flow before making the request. | Token expired. Middleware checks `exp` with `<` not `<=`. Fix: change to `<=` or refresh token before request. |
+| *(VI)* Claude ơi tại sao API của tôi bị lỗi 401 hoài vậy, middleware tôi viết rồi mà vẫn không qua được? | *(VI)* Token hết hạn. Middleware kiểm tra `exp` dùng `<` thay vì `<=`. Sửa: đổi thành `<=` hoặc refresh token trước khi gọi request. |
 
 **+ `terminal CLI style`**
 ```
@@ -104,6 +105,7 @@ Drop: articles, pleasantries, hedging. Fragments OK. Code unchanged.
 | 🗣️ Default Claude | 🪨 Caveman |
 |---|---|
 | React re-renders occur when component state or props change. In this case, the issue is likely that you're passing an inline object as a prop. Every render creates a new object reference, and since React uses shallow comparison, it treats the new reference as a changed prop and triggers a re-render. The recommended solution is to wrap the object in `useMemo` to stabilize the reference across renders. | New object ref each render. Inline prop = new ref = re-render. Wrap in `useMemo`. |
+| *(VI)* Component React của tôi bị re-render liên tục, không hiểu tại sao, tôi có thay đổi gì đâu? | *(VI)* Object mới mỗi lần render. Prop inline = ref mới = re-render. Bọc trong `useMemo`. |
 
 **+ `terminal CLI style`**
 ```
@@ -141,6 +143,7 @@ Not here to criticize. Here to give the honest take nobody else will say.
 | 🗣️ Default Claude | 🔍 Reality Check |
 |---|---|
 | Great work! Your README looks comprehensive and well-structured. The examples are clear, the token savings table is a nice touch, and the bilingual support shows real attention to your audience. I think this is a solid project that developers will find useful! | Summary table + example format work well → real risk: Vietnamese README drifts out of sync over time → verdict: ship it, add a sync note to CONTRIBUTING. |
+| *(VI)* Tôi đang làm side project về prompt styles cho Claude, định đăng lên cộng đồng AI VN, bạn thấy có ổn không? | *(VI)* Format bảng + before/after hoạt động tốt → rủi ro thật: nội dung VN dễ bị lạc khỏi bản EN theo thời gian → verdict: ship, thêm ghi chú sync vào CONTRIBUTING. |
 
 **+ `terminal CLI style`**
 ```
@@ -552,6 +555,41 @@ Feynman explanation style + git log action items at the end.
 ```
 Reality Check + Military. Honest verdict, no words wasted.
 ```
+
+---
+
+## ⚡ Style Switcher Skill
+
+Switch styles instantly with `/style` — no copy-pasting prompts manually.
+
+### Install
+
+1. Copy [`skills/style-switcher/SKILL.md`](skills/style-switcher/SKILL.md) vào thư mục `.claude/skills/style-switcher/` trong workspace của bạn:
+
+```
+your-project/
+└── .claude/
+    └── skills/
+        └── style-switcher/
+            └── SKILL.md
+```
+
+2. Restart Claude trong workspace đó — skill sẽ tự load.
+
+### Usage
+
+Type `/style` in any conversation → pick a number (1–13) → done.
+
+```
+/style          → shows the full menu
+/style 1        → apply Military directly
+/style feynman  → apply by name
+/style 3 + terminal CLI  → Reality Check with plain text output
+```
+
+Type `/style` again anytime to switch.
+
+> Works with Claude Code and Cowork.
 
 ---
 
