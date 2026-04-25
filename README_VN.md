@@ -18,7 +18,7 @@ Muốn dùng mãi mãi? Thêm vào `~/.claude/CLAUDE.md` — áp dụng cho mọ
 
 ## 📊 Tổng Quan Các Style
 
-| Phong cách | Output token | Tốt nhất cho | Tệ nhất cho | |
+| Phong cách | Output token | Tốt nhất cho | Không phù hợp cho | |
 |---|---|---|---|---|
 | 🪖 Military | 🟢 ít hơn 65–75% | Cần fix ngay, không cần giải thích | Thảo luận kiến trúc | [↗](#-military-quân-đội) |
 | 🪨 Caveman | 🟢 ít hơn 65–75% | Hỏi đáp nhanh khi đang code | Viết docs hoặc PR description | [↗](#-caveman-người-tiền-sử) |

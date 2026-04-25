@@ -18,7 +18,7 @@ Want it permanent? Add to `~/.claude/CLAUDE.md` — active for every session.
 
 ## 📊 Style Overview
 
-| Style | Output tokens | Best for | Worst for | |
+| Style | Output tokens | Best for | Not suitable for | |
 |---|---|---|---|---|
 | 🪖 Military | 🟢 65–75% fewer | When you need the fix, not the explanation | Thinking through architecture | [↗](#-military) |
 | 🪨 Caveman | 🟢 65–75% fewer | Fast back-and-forth while actively coding | Writing docs or PR descriptions | [↗](#-caveman) |
