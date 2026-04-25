@@ -518,6 +518,41 @@ Reality Check + Military. Honest verdict, no words wasted.
 
 ---
 
+## ⚡ Skill Chuyển Style Nhanh
+
+Chuyển style bằng `/style` — không cần copy-paste prompt thủ công.
+
+### Cài đặt
+
+1. Copy [`skills/style-switcher/SKILL.md`](skills/style-switcher/SKILL.md) vào thư mục `.claude/skills/style-switcher/` trong workspace của bạn:
+
+```
+your-project/
+└── .claude/
+    └── skills/
+        └── style-switcher/
+            └── SKILL.md
+```
+
+2. Khởi động lại Claude trong workspace đó — skill sẽ tự load.
+
+### Cách dùng
+
+Gõ `/style` → chọn số (1–13) → xong.
+
+```
+/style          → hiện menu đầy đủ
+/style 1        → apply Military luôn
+/style feynman  → chọn bằng tên
+/style 3 + terminal CLI  → Reality Check + plain text
+```
+
+Gõ `/style` lại bất cứ lúc nào để đổi style khác.
+
+> Hoạt động với Claude Code và Cowork.
+
+---
+
 ## Đóng Góp
 
 Có phong cách nào hoạt động tốt? PR luôn được chào đón. Bao gồm: prompt + ví dụ trước/sau + ước tính output token + ưu/nhược điểm.
